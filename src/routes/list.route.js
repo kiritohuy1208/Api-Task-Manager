@@ -1,8 +1,13 @@
 const express = require("express");
 const router = express.Router();
-const { getList } = require("./../controllers/list.controller");
+const {
+  getList,
+  postList,
+  updateList,
+  deleteList,
+} = require("./../controllers/list.controller");
 router.route("/").get(getList);
-router.route("").post()
-router.route("/:id").patch()
-router.route("/:id").delete()
+router.route("").post(postList);
+router.route("/:id").patch(updateList);
+router.route("/:id").delete(deleteList);
 module.exports = router;

@@ -4,7 +4,7 @@ const api = require("./routes/index");
 
 const dotenv = require("dotenv");
 dotenv.config();
-const port = 3000;
+const port = 4000;
 const ConnectDatabase = require("./../config/database");
 
 app.use(express.json());
