@@ -13,6 +13,11 @@ const createTask = (req,res) =>{
   newTask.save().then((newTask) =>res.status(200).send(newTask))
   .catch(err =>res.status(400).send(err.message))
 }
+const updateTask = (req,res) =>{
+  const {taskId} = req.params
+  Task.findByIdAndUpdate({_id:taskId},{$set:req.body}).then((result) =>res.status(200).send(result))
+  .catch(err =>res.status(400).send(err.message))
+}
 module.exports = {
   getTasks,
   createTask
