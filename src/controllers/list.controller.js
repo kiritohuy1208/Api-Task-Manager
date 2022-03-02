@@ -11,7 +11,7 @@ const postList = (req, res) => {
   let newList = new List({
     title,
     //_userId: req.user_id,
-    _userId: "12312",
+    // _userId: "12312",
   });
   newList
     .save()
@@ -22,13 +22,15 @@ const postList = (req, res) => {
 };
 const updateList = (req, res) => {
   List.findOneAndUpdate(
-    { _id: req.params.id, _userId: req.user_id },
+    { _id: req.params.id, 
+      // _userId: req.user_id
+    },
     {
       $set: req.body,
     }
   ).then((list) => {
     res.status(200).send("update list success");
-  });
+  }).catch(err =>res.status(400).send("Error:"+err.message));
 };
 const deleteList = (req, res) => {
   List.findOneAndRemove({ _id: req.params.id, _userId: req.user_id }).then(

@@ -8,6 +8,6 @@ const {
 } = require("./../controllers/list.controller");
 router.route("/").get(getList);
 router.route("").post(postList);
-router.route("/:id").patch(updateList);
+router.route("/:id").put(updateList);
 router.route("/:id").delete(deleteList);
 module.exports = router;
