@@ -10,7 +10,7 @@ const {
 
 router.route("/:listId/tasks").get(getTasks);
 router.route("/:taskId").get(getOneTask);
-router.route("/createTask").post(createTask);
+router.route("/:listId/createTask").post(createTask);
 router.route("/:listId/updateTask/:taskId").put(updateTask);
 router.route("/:taskId/deleteTask").delete(deleteTask);
 // export const TaskRouter = router;

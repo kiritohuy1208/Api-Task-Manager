@@ -12,10 +12,11 @@ const getOneTask = (req, res) => {
     .catch((err) => res.status(400).send(err.message));
 };
 const createTask = (req, res) => {
-  const { title, _listId } = req.body;
+  const { title } = req.body;
+  const { listId } = req.params;
   const newTask = new Task({
     title,
-    _listId,
+    _listId: listId,
   });
   newTask
     .save()
